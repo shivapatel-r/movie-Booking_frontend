@@ -1,0 +1,84 @@
+.dashboard-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.search-card {
+  background: white;
+  padding: 15px;
+  width: 350px;
+  margin: 0 auto 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.search-card input {
+  padding: 8px;
+  width: 65%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-card button {
+  padding: 8px 15px;
+  margin-left: 10px;
+  background: #00bcd4;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.movies-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  gap: 20px;
+}
+
+.movie-card {
+  background: white;
+  padding: 15px;
+  width: 220px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.theatre {
+  color: gray;
+  margin-bottom: 10px;
+}
+
+.available {
+  color: green;
+  font-weight: bold;
+}
+
+.sold {
+  color: red;
+  font-weight: bold;
+}
+
+.asap {
+  color: orange;
+  font-weight: bold;
+}
+
+.movie-card button {
+  margin-top: 10px;
+  padding: 6px 12px;
+  background: #00bcd4;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.movie-card button:disabled {
+  background: gray;
+  cursor: not-allowed;
+}

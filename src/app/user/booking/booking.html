@@ -1,0 +1,41 @@
+<div class="booking-container">
+
+  <div class="booking-card">
+
+    <h3>🎟 Select Your Seats</h3>
+    <p class="sub-title">{{ movieName | titlecase }} – {{ theatreName | titlecase }}</p>
+
+    <label>No. of Tickets</label>
+    <input type="number" [(ngModel)]="numberOfTickets" min="1" max="10">
+
+    <!-- SEATS -->
+    <div class="seats-grid">
+
+      <button *ngFor="let seat of seats" (click)="toggleSeat(seat)" [disabled]="seat.status === 'BOOKED'" [ngClass]="{
+                'booked': seat.status === 'BOOKED',
+                'selected': selectedSeats.includes(seat.seatNumber),
+                'available': seat.status === 'AVAILABLE'
+              }">
+
+        {{ seat.seatNumber }}
+
+      </button>
+
+    </div>
+
+    <button class="confirm-btn" (click)="bookTickets()">
+      Confirm Booking
+    </button>
+
+    <div *ngIf="successMessage" class="success-box">
+      {{ successMessage }}
+    </div>
+
+    <div *ngIf="errorMessage" class="error-box">
+      {{ errorMessage }}
+    </div>
+
+
+  </div>
+
+</div>

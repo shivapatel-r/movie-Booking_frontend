@@ -1,0 +1,39 @@
+<div class="dashboard-container">
+
+  <h2 class="title">🎬 Now Showing</h2>
+
+  <div class="search-card">
+    <input [(ngModel)]="searchText" (input)="searchMovies()" placeholder="Search movies..." />
+    <button (click)="searchMovies()">Search</button>
+  </div>
+
+  <div class="movies-grid">
+
+    <div class="movie-card" *ngFor="let movie of filteredMovies">
+
+      <h3>{{ movie.movieName }}</h3>
+
+      <p class="theatre">{{ movie.theatreName }}</p>
+
+      <p>🎟 Available: {{ movie.ticketsAvailable }}</p>
+
+      <p>
+        Status:
+        <span [ngClass]="{
+            'available': movie.status === 'AVAILABLE',
+            'sold': movie.status === 'SOLD_OUT',
+            'asap': movie.status === 'BOOK_ASAP'
+          }">
+          {{ movie.status }}
+        </span>
+      </p>
+
+      <button (click)="book(movie.movieName,movie.theatreName)" [disabled]="movie.status === 'SOLD_OUT'">
+        Book Now
+      </button>
+
+    </div>
+
+  </div>
+
+</div>

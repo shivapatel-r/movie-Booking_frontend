@@ -1,0 +1,58 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* 🎨 EXACT COLOR STYLE */
+  background: linear-gradient(to right, #0f3b4c, #0aa1c0);
+
+  padding: 12px 25px;
+  color: white;
+}
+
+/* LOGO */
+.logo {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* RIGHT SIDE */
+.nav-right {
+  display: flex;
+  align-items: center;
+
+  /* 🔥 PERFECT GAP (not too much, not too tight) */
+  gap: 20px;
+}
+
+/* LINKS */
+.nav-right a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.nav-right a:hover {
+  opacity: 0.8;
+}
+
+/* ACTIVE LINK */
+.active {
+  border-bottom: 2px solid white;
+}
+
+/* LOGOUT BUTTON */
+.logout-btn {
+  background: #ff4d4d;
+  border: none;
+  padding: 6px 14px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.logout-btn:hover {
+  background: #cc0000;
+}

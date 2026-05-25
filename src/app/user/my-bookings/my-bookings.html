@@ -1,0 +1,27 @@
+<div class="tickets-container">
+
+  <h2 class="title">🎟 My Tickets</h2>
+
+  <div *ngIf="bookings.length === 0" class="no-bookings">
+    No bookings available 🎟️
+  </div>
+
+  <div class="tickets-grid">
+
+    <div class="ticket-card" *ngFor="let booking of bookings">
+
+      <h3>{{ booking.movieName }}</h3>
+
+      <p class="theatre">{{ booking.theatreName }}</p>
+
+      <p><b>Seats:</b> {{ booking.seatNumbers }}</p>
+
+      <p><b>Quantity:</b> {{ booking.numberOfTickets }}</p>
+
+      <p class="status">Confirmed</p>
+
+    </div>
+
+  </div>
+
+</div>

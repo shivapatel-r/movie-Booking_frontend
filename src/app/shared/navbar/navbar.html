@@ -1,0 +1,37 @@
+<nav class="navbar">
+
+  <div class="logo">
+    🎬 MovieBookingApp
+  </div>
+
+  <div class="nav-right">
+
+    <!-- NOT LOGGED IN -->
+    <ng-container *ngIf="!auth.isLoggedIn()">
+      <a routerLink="/login">Login</a>
+      <a routerLink="/register">Register</a>
+    </ng-container>
+
+    <!-- LOGGED IN -->
+    <ng-container *ngIf="auth.isLoggedIn()">
+
+      <!-- USER -->
+      <ng-container *ngIf="auth.getRole() === 'ROLE_USER'">
+        <a routerLink="/user" routerLinkActive="active">Home</a>
+        <a routerLink="/my-bookings" routerLinkActive="active">My Tickets</a>
+        <a routerLink="/reset" routerLinkActive="active">Change Password</a>
+      </ng-container>
+
+      <!-- ADMIN -->
+      <ng-container *ngIf="auth.getRole() === 'ROLE_ADMIN'">
+        <a routerLink="/admin" routerLinkActive="active">Admin</a>
+        <a routerLink="/reset" routerLinkActive="active">Change Password</a>
+      </ng-container>
+
+      <button class="logout-btn" (click)="logout()">Logout</button>
+
+    </ng-container>
+
+  </div>
+
+</nav>

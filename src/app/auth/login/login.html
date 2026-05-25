@@ -1,0 +1,35 @@
+<div class="auth-container">
+  <div class="auth-card">
+
+    <h2>Welcome Back 🎬</h2>
+
+    <form (ngSubmit)="login()">
+
+      <input [(ngModel)]="loginData.loginId" name="loginId" placeholder="Login ID" required minlength="8" maxlength="20"
+        #loginId="ngModel">
+      <small class="error" *ngIf="loginId.invalid && (loginId.touched)">
+        {{ messages.LOGIN_ID }}
+      </small>
+
+      <input [(ngModel)]="loginData.password" name="password" type="password" placeholder="Password" required
+                            [pattern]="patterns.PASSWORD_PATTERN" #password="ngModel">
+
+                     <small class="error" *ngIf="password.invalid && (password.touched)">
+                            {{ messages.PASSWORD_PATTERN }}
+                     </small>
+
+      <button type="submit">Login</button>
+
+    </form>
+
+    <p style="margin-top:10px;">
+      Don't have an account?
+      <a routerLink="/register">Register here</a>
+    </p>
+
+    <p>
+      <a routerLink="/forgot">Forgot Password?</a>
+    </p>
+
+  </div>
+</div>

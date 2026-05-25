@@ -1,0 +1,60 @@
+<h2 class="title">🎬 Admin Dashboard</h2>
+<p class="subtitle">Manage movies, ticket availability & status</p>
+
+<div *ngIf="successMessage" class="success-msg">
+  {{ successMessage }}
+</div>
+
+<div class="add-card">
+
+  <h3>Add New Movie</h3>
+
+  <div class="form-row">
+    <input [(ngModel)]="newMovie.movieName" placeholder="Movie Name" required>
+    <input [(ngModel)]="newMovie.theatreName" placeholder="Theatre Name" required>
+    <input [(ngModel)]="newMovie.totalTickets" type="number" placeholder="Total Tickets" min="1" required>
+  </div>
+
+  <button class="add-btn" (click)="addMovie()">
+    Add Movie
+  </button>
+
+</div>
+
+<div class="movie-container">
+
+  @for (movie of movies; track movie.movieName) {
+
+  <div class="movie-card">
+
+    <h3>{{ movie.movieName }}</h3>
+    <p class="theatre">{{ movie.theatreName }}</p>
+
+    <p>Booked Tickets: {{ movie.ticketsBooked }}</p>
+    <p>Available: {{ movie.ticketsAvailable }}</p>
+
+    <p>
+      Status:
+      <span class="available" *ngIf="movie.status === 'AVAILABLE'">Available</span>
+      <span class="sold" *ngIf="movie.status === 'SOLD_OUT'">Sold Out</span>
+      <span class="asap-status" *ngIf="movie.status === 'BOOK_ASAP'">Book ASAP</span>
+    </p>
+
+    <button class="btn asap" (click)="markAsap(movie)"
+      [disabled]="movie.status === 'SOLD_OUT' || movie.status === 'BOOK_ASAP'">
+
+      Mark Book ASAP
+    </button>
+
+    <div class="row-btns">
+      <button class="btn sold-btn" (click)="markSold(movie)">Mark Sold Out</button>
+      <button class="btn refresh" (click)="refresh()">Refresh Availability</button>
+    </div>
+
+    <button class="btn delete" (click)="delete(movie)">Delete</button>
+
+  </div>
+
+  }
+
+</div>
